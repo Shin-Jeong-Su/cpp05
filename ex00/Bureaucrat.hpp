@@ -11,13 +11,13 @@ class Bureaucrat{
         class   GradeTooHighException:public std::exception{
             public:
                 const char* what() const throw(){
-                    return ("Error: GradTooHigh");
+                    return ("\e[0;31mError: GradTooHigh\e[0m\n");
                 }
         };
         class   GradeTooLowException:public std::exception{
             public:
                 const char* what() const throw(){
-                    return ("Error: GradTooHigh");
+                    return ("\e[0;31mError: GradTooLow\e[0m\n");
                 }
         };
     public:
@@ -27,11 +27,11 @@ class Bureaucrat{
         ~Bureaucrat();
         void        setName(std::string name);
         void        setGrade(int grade);
-        std::string getName();
-        int         getGrade();
+        std::string getName()const;
+        int         getGrade()const;
         void        incrementGrade();
         void        decrementGrade();
         Bureaucrat& operator=(const Bureaucrat& rhs);
 };
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);
 #endif
