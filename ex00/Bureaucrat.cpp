@@ -7,6 +7,11 @@ Bureaucrat::Bureaucrat():_name("noName"),_grade(150){
 
 Bureaucrat::Bureaucrat(std::string name, int grade) :_name(name),_grade(grade){
     // std::cout<<"Bureaucrat(name, grade)\n";
+	if (grade < 0)
+		throw(GradeTooHighException());
+	if (grade >150)
+		throw(GradeTooLowException());
+	_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& rhs) :_name(rhs._name),_grade(rhs._grade){

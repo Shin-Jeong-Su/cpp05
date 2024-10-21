@@ -4,9 +4,11 @@ RM := rm -f
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 DBG = -g -fsanitize=address
 SRCS := main.cpp\
-		Bureaucrat.cpp
+		Bureaucrat.cpp\
+		Form.cpp
 
-HEADERS := Bureaucrat.hpp
+HEADERS := Bureaucrat.hpp\
+			Bureaucrat.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -5,39 +5,36 @@
 int main(){
     //test 1
     {
-        std::cout<<"*************test for a default bureaucrat*************\n";
-        Bureaucrat bcratDefault;
-        //decrementing a grade of Default Bureuacart
+		//test for 150 grade bureacrat to sign a form that has 150 grade to sign and excute
+        std::cout<<"*************test for 150 grade Form*************\n";
+		Bureaucrat bcrat("150 grade bcrat",150);
+		Form form("150 form",150,150);
         try{
-            std::cout<<"decrementing a grade of bcratDefault"<<"\n";
-            std::cout<<bcratDefault.getName()<<": \t";
-            std::cout<<"Before: "<<bcratDefault.getGrade()<<"\t";
-            bcratDefault.decrementGrade();
-            std::cout<<"After: "<<bcratDefault.getGrade()<<"\n";
-        }catch(std::exception& e){
-            std::cout<<e.what();
-        }
-        //incrementing a grade of Default Bureuacart
-        try{
-            std::cout<<"incrementing a grade of bcratDefault"<<"\n";
-            std::cout<<bcratDefault.getName()<<": \t";
-            std::cout<<"Before: "<<bcratDefault.getGrade()<<"\t";
-            bcratDefault.incrementGrade();
-            std::cout<<"After: "<<bcratDefault.getGrade()<<"\n";
+			bcrat.signForm(form);
         }catch(std::exception& e){
             std::cout<<e.what();
         }
     }
     //test2
     {
-        std::cout<<"*************test for 10 grade bureaucrat*************\n";
-        Bureaucrat bcrat10Grade("10grade",10);
+		//test for 10 grade bureacrat to sign a form that has 1 grade to sign and excute
+        std::cout<<"*************test for 1 grade Form*************\n";
+		Bureaucrat bcrat("10 grade bcrat",10);
+		Form form("1 form",1,1);
         try{
-            std::cout<<"incrementing a grade of 10 grade bureaucrat for ten times"<<"\n";
-            std::cout<<bcrat10Grade.getName()<<": \t";
-            for(int i=0;i<10;i++){
-                bcrat10Grade.incrementGrade();
-            }
+			bcrat.signForm(form);
+        }catch(std::exception& e){
+            std::cout<<e.what();
+        }
+    }
+    //test3
+    {
+		//test for 10 grade bureacrat to sign a form that has 15 grade to sign and excute
+        std::cout<<"*************test for 1 grade Form*************\n";
+		Bureaucrat bcrat("10 grade bcrat",10);
+		Form form("15 form",15,15);
+        try{
+			bcrat.signForm(form);
         }catch(std::exception& e){
             std::cout<<e.what();
         }

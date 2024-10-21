@@ -3,11 +3,19 @@
 
 #include <string>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     private:
+        Bureaucrat();
+
         std::string _name;
         int         _grade;
+
+        Bureaucrat& operator=(const Bureaucrat& rhs);
+
         class   GradeTooHighException:public std::exception{
             public:
                 const char* what() const throw(){
@@ -21,17 +29,18 @@ class Bureaucrat{
                 }
         };
     public:
-        Bureaucrat();
         Bureaucrat(std::string name, int grade);
         Bureaucrat(const Bureaucrat& rhs);
         ~Bureaucrat();
+
         void        setName(std::string name);
         void        setGrade(int grade);
         std::string getName()const;
         int         getGrade()const;
         void        incrementGrade();
         void        decrementGrade();
-        Bureaucrat& operator=(const Bureaucrat& rhs);
+		void		signForm(Form& form);
+
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);
 #endif
