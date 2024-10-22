@@ -5,10 +5,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void chl(void){
-	system("leaks a.out");
-}
-
 int main(){
     //test 1
     {

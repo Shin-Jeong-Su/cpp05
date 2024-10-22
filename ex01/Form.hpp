@@ -2,6 +2,7 @@
 #define __FORM_H__
 
 #include <string>
+#include <exception>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
