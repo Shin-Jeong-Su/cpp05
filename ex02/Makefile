@@ -5,10 +5,16 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 DBG = -g -fsanitize=address
 SRCS := main.cpp\
 		Bureaucrat.cpp\
-		Form.cpp
+		AForm.cpp\
+		PresidentialPardonForm.cpp\
+		RobotomyRequestForm.cpp\
+		ShrubberyCreationForm.cpp
 
 HEADERS := Bureaucrat.hpp\
-			Bureaucrat.hpp
+			AForm.hpp\
+			PresidentialPardonForm.hpp\
+			RobotomyRequestForm.hpp\
+			ShrubberyCreationForm.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -23,6 +29,7 @@ d : $(SRCS) $(HEADERS)
 
 clean :
 	$(RM) $(OBJS)
+	$(RM) *_shrubbery
 
 fclean : clean
 	$(RM) $(NAME)

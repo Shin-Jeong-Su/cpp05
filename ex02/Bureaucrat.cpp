@@ -1,23 +1,25 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Bureaucrat::Bureaucrat():_name("noName"),_grade(150){
-    // std::cout<<"Bureaucrat()\n";
+Bureaucrat::Bureaucrat()
+:_name("noName"),_grade(150){
+
 }
-Bureaucrat::Bureaucrat(std::string name, int grade) :_name(name){
-    // std::cout<<"Bureaucrat(name, grade)\n";
+Bureaucrat::Bureaucrat(std::string name, int grade)
+:_name(name){
 	if (grade < 0)
 		throw(GradeTooHighException());
 	if (grade >150)
 		throw(GradeTooLowException());
 	_grade = grade;
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& rhs) :_name(rhs._name),_grade(rhs._grade){
-    // std::cout<<"Bureaucrat(const Bureaucrat& rhs)\n";
+Bureaucrat::Bureaucrat(const Bureaucrat& rhs)
+:_name(rhs._name),_grade(rhs._grade){
+
 }
 Bureaucrat::~Bureaucrat(){
-    // std::cout<<"~Bureaucrat()\n";
+
 }
 
 void       Bureaucrat::setName(std::string name){
@@ -50,12 +52,16 @@ void        Bureaucrat::decrementGrade(){
     }
     _grade++;
 }
-void		Bureaucrat::signForm(Form& form){
+void		Bureaucrat::signForm(AForm& form){
 	if (form.beSigned(*this)){
 		std::cout<<_name<<" signed "<<form.getName()<<"\n";
 		return ;
 	}
 	std::cout<<_name<<" couldn't sign "<<form.getName()<<" because it is already signed\n";
+}
+void		Bureaucrat::exectueForm(const AForm& form){
+	form.execute(*this);
+	std::cout<<*this<<" executed "<<form<<"\n";
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs){
@@ -68,6 +74,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs){
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs){
-    std::cout<<rhs.getName()<<", bureaucrat grade "<<rhs.getGrade()<<".\n";
+    std::cout<<"Bureaucrat "<<rhs.getName();
     return(os);
 }

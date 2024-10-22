@@ -3,7 +3,6 @@
 
 AForm::AForm(std::string name, int requiredGradeToSign, int requiredGradeToExcute)
 :_name(name), _signed(false), _requiredGradeToSign(requiredGradeToSign), _requiredGradeToExecute(requiredGradeToExcute){
-    // std::cout<<"AForm(name, requiredGradeToSign, requiredGradeToExectue)\n";
 	if (requiredGradeToSign < 0 || requiredGradeToExcute < 0){
 		throw(GradeTooHighException());
 	}
@@ -12,7 +11,6 @@ AForm::AForm(std::string name, int requiredGradeToSign, int requiredGradeToExcut
 	}
 }
 AForm::~AForm(){
-    // std::cout<<"~AForm()\n";
 }
 
 std::string			AForm::getName() const{
@@ -34,11 +32,16 @@ bool		AForm::beSigned(const Bureaucrat& bureaucrat){
 	_signed=true;
 	return (true);
 }
+void		AForm::checkRequiremenetsForExecuting(const Bureaucrat& executor) const{
+	if (_signed==false){
+		throw FormIsntSignedExceptionToExecute();
+	}
+	if (executor.getGrade() > _requiredGradeToExecute){
+		throw GradeTooLowExceptionToExcetue();
+	}
+}
 
 std::ostream& operator<<(std::ostream& os, const AForm& rhs){
-	std::cout<<"AForm name: "<<rhs.getName()<<"\n";
-	std::cout<<"is signed: "<<rhs.getSigned()<<"\n";
-	std::cout<<"required grade to sign: "<<rhs.getRequiredGradeToSign()<<"\n";
-	std::cout<<"required grade to excuted: "<<rhs.getRequiredGradeToExecute()<<"\n";
+	std::cout<<"Form "<<rhs.getName()<<"\n";
 	return (os);
 }

@@ -25,6 +25,18 @@ class AForm{
                     return ("\e[0;31mError: GradTooLow\e[0m\n");
                 }
         };
+		class	FormIsntSignedExceptionToExecute:public std::exception{
+			public:
+				const char* what() const throw(){
+                    return ("\e[0;31mError: Can't execute, form isn't signed\e[0m\n");
+				}
+		};
+		class	GradeTooLowExceptionToExcetue:public std::exception{
+			public:
+				const char* what() const throw(){
+                    return ("\e[0;31mError: Can't execute, grade too low\e[0m\n");
+				}
+		};
     public:
 		AForm(std::string name, int requiredGradeToSign, int requiredGradeToExcute);
 		virtual ~AForm();
@@ -35,6 +47,7 @@ class AForm{
 		int				getRequiredGradeToExecute() const;
 		bool			beSigned(const Bureaucrat& bureaucrat);
 		virtual void	execute(const Bureaucrat& executor) const=0;
+		void			checkRequiremenetsForExecuting(const Bureaucrat& executor) const;
 };
-std::ostream& operator<<(std::ostream& os, const Form& rhs);
+std::ostream& operator<<(std::ostream& os, const AForm& rhs);
 #endif
