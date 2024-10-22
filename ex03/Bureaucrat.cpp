@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat()
 }
 Bureaucrat::Bureaucrat(std::string name, int grade)
 :_name(name){
-	if (grade < 0)
+	if (grade < 1)
 		throw(GradeTooHighException());
 	if (grade >150)
 		throw(GradeTooLowException());
@@ -23,16 +23,16 @@ Bureaucrat::~Bureaucrat(){
 }
 
 void       Bureaucrat::setName(std::string name){
-    _name=name;
+    _name = name;
 }
 void        Bureaucrat::setGrade(int grade){
-    if (grade<1){
+    if (grade < 1){
         throw Bureaucrat::GradeTooHighException();
     }
-    if (grade>150){
+    if (grade > 150){
         throw Bureaucrat::GradeTooLowException();
     }
-    _grade=grade;
+    _grade = grade;
 }
 std::string Bureaucrat::getName()const{
     return (_name);
@@ -53,15 +53,12 @@ void        Bureaucrat::decrementGrade(){
     _grade++;
 }
 void		Bureaucrat::signForm(AForm& form){
-	if (form.beSigned(*this)){
-		std::cout<<_name<<" signed "<<form.getName()<<"\n";
-		return ;
-	}
-	std::cout<<_name<<" couldn't sign "<<form.getName()<<" because it is already signed\n";
+	form.beSigned(*this);
+	std::cout<<_name<<" signed "<<form.getName()<<"\n";
 }
 void		Bureaucrat::exectueForm(const AForm& form){
 	form.execute(*this);
-	std::cout<<*this<<" executed "<<form<<"\n";
+	std::cout<<_name<<" executed "<<form.getName()<<"\n";
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs){
@@ -72,8 +69,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs){
     _grade=rhs._grade;
     return (*this);
 }
-
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs){
-    std::cout<<"Bureaucrat "<<rhs.getName();
+    std::cout<<rhs.getName()<<", bureaucrat grade "<<rhs.getGrade()<<".\n";
     return(os);
 }

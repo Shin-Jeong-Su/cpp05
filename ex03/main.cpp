@@ -19,7 +19,7 @@ int main(){
         try{
 			form = intern.makeForm("shrubbery creation","test1");
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
 		delete form;
     }
@@ -32,7 +32,7 @@ int main(){
         try{
 			form = intern.makeForm("robotomy request","test2");
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
 		delete form;
     }
@@ -45,7 +45,7 @@ int main(){
         try{
 			form = intern.makeForm("presidential pardon","test3");
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
 		delete form;
     }
@@ -58,7 +58,7 @@ int main(){
         try{
 			form = intern.makeForm("unexistentform","test4");
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
     }
 	// chl();

@@ -26,6 +26,12 @@ class AForm{
                     return ("\e[0;31mError: GradTooLow\e[0m\n");
                 }
         };
+		class	AlreadySignedExceptionToSign:public std::exception{
+			public:
+				const char* what() const throw(){
+                    return ("\e[0;31mError: AlreadySigned\e[0m\n");
+				}
+		};
 		class	FormIsntSignedExceptionToExecute:public std::exception{
 			public:
 				const char* what() const throw(){
@@ -46,7 +52,7 @@ class AForm{
 		bool			getSigned() const;
 		int				getRequiredGradeToSign() const;
 		int				getRequiredGradeToExecute() const;
-		bool			beSigned(const Bureaucrat& bureaucrat);
+		void			beSigned(const Bureaucrat& bureaucrat);
 		virtual void	execute(const Bureaucrat& executor) const=0;
 		void			checkRequiremenetsForExecuting(const Bureaucrat& executor) const;
 };

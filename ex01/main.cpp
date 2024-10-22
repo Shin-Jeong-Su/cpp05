@@ -4,38 +4,83 @@
 int main(){
     //test 1
     {
-		//test for 150 grade bureacrat to sign a form that has 150 grade to sign and excute
-        std::cout<<"*************test for 150 grade Form*************\n";
-		Bureaucrat bcrat("150 grade bcrat",150);
-		Form form("150 form",150,150);
+		//150 grade bureacrat is trying to sign a form that require 150 grade to sign and execute
+        std::cout<<"\e[0;33m*************test1*************\e[0m\n";
+        std::cout<<"\e[0;32m150 grade bureacrat is trying to sign a form that require 150 grade to sign and execute\e[0m\n";
+		std::cout<<"\n";
+
+		Bureaucrat bcrat("150 grade bcrat", 150);
+		Form form("150 form", 150, 150);
+
+		std::cout<<bcrat;
+		std::cout<<form;
         try{
 			bcrat.signForm(form);
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
+        std::cout<<"\e[0;33m*******************************\e[0m\n";
+		std::cout<<"\n";
     }
     //test2
     {
-		//test for 10 grade bureacrat to sign a form that has 1 grade to sign and excute
-        std::cout<<"*************test for 1 grade Form*************\n";
-		Bureaucrat bcrat("10 grade bcrat",10);
-		Form form("1 form",1,1);
+		//10 grade bureacrat is trying to sign a form that require 1 grade to sign and execute
+        std::cout<<"\e[0;33m*************test2*************\e[0m\n";
+        std::cout<<"\e[0;32m*************10 grade bureacrat is trying to sign a form that require 1 grade to sign and execute*************\e[0m\n";
+		std::cout<<"\n";
+
+		Bureaucrat bcrat("10 grade bcrat", 10);
+		Form form("1 form", 1, 1);
+
+		std::cout<<bcrat;
+		std::cout<<form;
         try{
 			bcrat.signForm(form);
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
+        std::cout<<"*******************************\n";
+		std::cout<<"\n";
     }
     //test3
     {
-		//test for 10 grade bureacrat to sign a form that has 15 grade to sign and excute
-        std::cout<<"*************test for 1 grade Form*************\n";
+		//10 grade bureacrat is trying to sign a form that require 15 grade to sign and execute
+        std::cout<<"\e[0;33m*************test3*************\e[0m\n";
+        std::cout<<"\e[0;32m*************10 grade bureacrat is trying to sign a form that require 15 grade to sign and execute*************\e[0m\n";
+		std::cout<<"\n";
+
 		Bureaucrat bcrat("10 grade bcrat",10);
-		Form form("15 form",15,15);
+		Form form("15 form", 15, 15);
+
+		std::cout<<bcrat;
+		std::cout<<form;
         try{
 			bcrat.signForm(form);
         }catch(std::exception& e){
-            std::cout<<e.what();
+            std::cerr<<e.what();
         }
+        std::cout<<"*******************************\n";
+		std::cout<<"\n";
+    }
+    //test4
+    {
+		//10 grade bureacrat is trying to sign a form twice that require 15 grade to sign and execute
+        std::cout<<"\e[0;33m*************test3*************\e[0m\n";
+        std::cout<<"\e[0;32m*************10 grade bureacrat is trying to sign a form twice that require 15 grade to sign and execute*************\e[0m\n";
+		std::cout<<"\n";
+
+		Bureaucrat bcrat("10 grade bcrat",10);
+		Form form("15 form", 15, 15);
+
+		std::cout<<bcrat;
+		std::cout<<form;
+        try{
+			bcrat.signForm(form);
+			bcrat.signForm(form);
+        }catch(std::exception& e){
+            std::cerr<<e.what();
+        }
+        std::cout<<"*******************************\n";
+		std::cout<<"\n";
     }
 }

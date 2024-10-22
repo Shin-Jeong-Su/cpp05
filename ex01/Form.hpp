@@ -10,6 +10,7 @@ class Bureaucrat;
 class Form{
     private:
 		Form();
+		Form(const Form& rhs);
 
         const std::string   _name;
         bool                _signed;
@@ -30,16 +31,21 @@ class Form{
                     return ("\e[0;31mError: GradTooLow\e[0m\n");
                 }
         };
+		class	AlreadySignedExceptionToSign:public std::exception{
+			public:
+				const char* what() const throw(){
+                    return ("\e[0;31mError: AlreadySigned\e[0m\n");
+				}
+		};
     public:
 		Form(std::string name, int requiredGradeToSign, int requiredGradeToExcute);
-		Form(const Form& rhs);
 		~Form();
 
 		std::string		getName() const;
 		bool			getSigned() const;
 		int				getRequiredGradeToSign() const;
 		int				getRequiredGradeToExecute() const;
-		bool			beSigned(const Bureaucrat& bureaucrat);
+		void			beSigned(const Bureaucrat& bureaucrat);
 };
 std::ostream& operator<<(std::ostream& os, const Form& rhs);
 #endif

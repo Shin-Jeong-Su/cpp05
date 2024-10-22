@@ -11,6 +11,7 @@ AForm::AForm(std::string name, int requiredGradeToSign, int requiredGradeToExcut
 	}
 }
 AForm::~AForm(){
+
 }
 
 std::string			AForm::getName() const{
@@ -25,12 +26,16 @@ int			AForm::getRequiredGradeToSign() const{
 int			AForm::getRequiredGradeToExecute() const{
 	return (_requiredGradeToExecute);
 }
-bool		AForm::beSigned(const Bureaucrat& bureaucrat){
+void		AForm::beSigned(const Bureaucrat& bureaucrat){
 	if (_requiredGradeToSign < bureaucrat.getGrade()){
+		std::cout<<bureaucrat.getName()<<" couldn't sign "<<_name<<" because bureaucrat's grade is too low\n";
 		throw GradeTooLowException();
 	}
-	_signed=true;
-	return (true);
+	if (_signed == true){
+		std::cout<<bureaucrat.getName()<<" couldn't sign "<<_name<<" because it is already signed\n";
+		throw AlreadySignedExceptionToSign();
+	}
+	_signed = true;
 }
 void		AForm::checkRequiremenetsForExecuting(const Bureaucrat& executor) const{
 	if (_signed==false){
@@ -42,6 +47,9 @@ void		AForm::checkRequiremenetsForExecuting(const Bureaucrat& executor) const{
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& rhs){
-	std::cout<<"Form "<<rhs.getName()<<"\n";
+	std::cout<<"Form: "<<rhs.getName()<<", ";
+	std::cout<<"is signed: "<<rhs.getSigned()<<", ";
+	std::cout<<"required grade to sign: "<<rhs.getRequiredGradeToSign()<<", ";
+	std::cout<<"required grade to executed: "<<rhs.getRequiredGradeToExecute()<<"\n";
 	return (os);
 }
