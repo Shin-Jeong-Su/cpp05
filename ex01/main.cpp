@@ -14,11 +14,9 @@ int main(){
 
 		std::cout<<bcrat;
 		std::cout<<form;
-        try{
-			bcrat.signForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+
         std::cout<<"\e[0;33m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
@@ -34,11 +32,9 @@ int main(){
 
 		std::cout<<bcrat;
 		std::cout<<form;
-        try{
-			bcrat.signForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+
         std::cout<<"*******************************\n";
 		std::cout<<"\n";
     }
@@ -54,11 +50,9 @@ int main(){
 
 		std::cout<<bcrat;
 		std::cout<<form;
-        try{
-			bcrat.signForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+
         std::cout<<"*******************************\n";
 		std::cout<<"\n";
     }
@@ -74,12 +68,10 @@ int main(){
 
 		std::cout<<bcrat;
 		std::cout<<form;
-        try{
-			bcrat.signForm(form);
-			bcrat.signForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+		bcrat.signForm(form);
+
         std::cout<<"*******************************\n";
 		std::cout<<"\n";
     }

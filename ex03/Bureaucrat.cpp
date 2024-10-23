@@ -53,11 +53,21 @@ void        Bureaucrat::decrementGrade(){
     _grade++;
 }
 void		Bureaucrat::signForm(AForm& form){
-	form.beSigned(*this);
+	try{
+		form.beSigned(*this);
+	}catch(std::exception& e){
+		std::cerr<<e.what();
+		return ;
+	}
 	std::cout<<_name<<" signed "<<form.getName()<<"\n";
 }
 void		Bureaucrat::exectueForm(const AForm& form){
-	form.execute(*this);
+	try{
+		form.execute(*this);
+	}catch(std::exception& e){
+		std::cerr<<e.what();
+		return ;
+	}
 	std::cout<<_name<<" executed "<<form.getName()<<"\n";
 }
 

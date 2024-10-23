@@ -19,12 +19,10 @@ int main(){
 		std::cout<<bcrat;
 		std::cout<<form;
 		std::cout<<"\n";
-        try{
-			bcrat.signForm(form);
-			bcrat.exectueForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+		bcrat.exectueForm(form);
+
         std::cout<<"\e[0;7m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
@@ -41,12 +39,10 @@ int main(){
 		std::cout<<bcrat;
 		std::cout<<form;
 		std::cout<<"\n";
-        try{
-			bcrat.signForm(form);
-			bcrat.exectueForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+		bcrat.exectueForm(form);
+
         std::cout<<"\e[0;7m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
@@ -63,12 +59,10 @@ int main(){
 		std::cout<<bcrat;
 		std::cout<<form;
 		std::cout<<"\n";
-        try{
-			bcrat.signForm(form);
-			bcrat.exectueForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+		bcrat.exectueForm(form);
+
         std::cout<<"\e[0;7m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
@@ -85,11 +79,9 @@ int main(){
 		std::cout<<bcrat;
 		std::cout<<form;
 		std::cout<<"\n";
-        try{
-			bcrat.exectueForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.exectueForm(form);
+
         std::cout<<"\e[0;7m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
@@ -106,12 +98,10 @@ int main(){
 		std::cout<<bcrat;
 		std::cout<<form;
 		std::cout<<"\n";
-        try{
-			bcrat.signForm(form);
-			bcrat.exectueForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+		bcrat.exectueForm(form);
+
         std::cout<<"\e[0;7m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
@@ -128,12 +118,10 @@ int main(){
 		std::cout<<bcrat;
 		std::cout<<form;
 		std::cout<<"\n";
-        try{
-			bcrat.signForm(form);
-			bcrat.exectueForm(form);
-        }catch(std::exception& e){
-            std::cerr<<e.what();
-        }
+
+		bcrat.signForm(form);
+		bcrat.exectueForm(form);
+
         std::cout<<"\e[0;7m*******************************\e[0m\n";
 		std::cout<<"\n";
     }
