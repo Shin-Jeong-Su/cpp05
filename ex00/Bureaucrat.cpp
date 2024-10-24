@@ -59,6 +59,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs){
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs){
-    std::cout<<rhs.getName()<<", bureaucrat grade "<<rhs.getGrade()<<".\n";
+    os<<rhs.getName()<<", bureaucrat grade "<<rhs.getGrade()<<".\n";
     return(os);
 }

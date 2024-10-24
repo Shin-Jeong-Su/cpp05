@@ -54,9 +54,9 @@ Form&	Form::operator=(const Form& rhs){
 	return (*this);
 }
 std::ostream& operator<<(std::ostream& os, const Form& rhs){
-	std::cout<<"Form: "<<rhs.getName()<<", ";
-	std::cout<<"is signed: "<<rhs.getSigned()<<", ";
-	std::cout<<"required grade to sign: "<<rhs.getRequiredGradeToSign()<<", ";
-	std::cout<<"required grade to executed: "<<rhs.getRequiredGradeToExecute()<<"\n";
+	os<<"Form: "<<rhs.getName()<<", ";
+	os<<"is signed: "<<rhs.getSigned()<<", ";
+	os<<"required grade to sign: "<<rhs.getRequiredGradeToSign()<<", ";
+	os<<"required grade to executed: "<<rhs.getRequiredGradeToExecute()<<"\n";
 	return (os);
 }
